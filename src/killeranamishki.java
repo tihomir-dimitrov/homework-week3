@@ -5,6 +5,17 @@ public class killeranamishki {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        int robotsBattery = 100;
+        int robotHits = 4;
+        final int hitCounts;
+        for(hitCounts = 0; hitCounts <= robotHits;) {
+            {
+                robotsBattery -= 20;
+                if (hitCounts % 2 == 0) {
+
+                }
+
+            }
             System.out.println("What's in front of the Robot?");
 
             String objectInSightOfRobot = scanner.nextLine();
@@ -20,13 +31,20 @@ public class killeranamishki {
                 if (numberOfPixels % 2 == 0) {
                     isMouseInFront++;
                     System.out.println("Mouse spotted!");
+                    System.out.println("Mouse was killed ");
                 } else {
                     System.out.println("Tell the Robot how much to move again ");
+                }
+                System.out.printf("Battery Left: %d%%\n", robotsBattery);
+                if(robotsBattery == 0){
+                   System.out.printf("No Battery left: %d%%\n", robotsBattery);
+                   System.exit(0);
                 }
             }
 
         }
 
+        }
     public static String movementOfRobot(String objectInFrontOfRobot) {
         String robotsMovementAfterSpot;
 
@@ -36,7 +54,8 @@ public class killeranamishki {
             robotsMovementAfterSpot = "Jump";
         } else if (objectInFrontOfRobot.equalsIgnoreCase("Nothing")) {
             robotsMovementAfterSpot = "Forward";
-        } else {
+        }
+        else {
             robotsMovementAfterSpot = "Congrats! Object has been passed!";
         }
         return robotsMovementAfterSpot;
