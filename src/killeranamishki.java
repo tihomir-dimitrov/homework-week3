@@ -4,11 +4,12 @@ public class killeranamishki {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        comunicationToOwner();
 
         int robotsBattery = 100;
         int robotHits = 4;
         final int hitCounts;
-        for(hitCounts = 0; hitCounts <= robotHits;) {
+        for (hitCounts = 0; hitCounts <= robotHits; ) {
             {
                 robotsBattery -= 20;
                 if (hitCounts % 2 == 0) {
@@ -36,15 +37,16 @@ public class killeranamishki {
                     System.out.println("Tell the Robot how much to move again ");
                 }
                 System.out.printf("Battery Left: %d%%\n", robotsBattery);
-                if(robotsBattery == 0){
-                   System.out.printf("No Battery left: %d%%\n", robotsBattery);
-                   System.exit(0);
+                if (robotsBattery == 0) {
+                    System.out.printf("No Battery left: %d%%\n", robotsBattery);
+                    System.exit(0);
                 }
             }
 
         }
 
-        }
+    }
+
     public static String movementOfRobot(String objectInFrontOfRobot) {
         String robotsMovementAfterSpot;
 
@@ -54,10 +56,20 @@ public class killeranamishki {
             robotsMovementAfterSpot = "Jump";
         } else if (objectInFrontOfRobot.equalsIgnoreCase("Nothing")) {
             robotsMovementAfterSpot = "Forward";
-        }
-        else {
+        } else {
             robotsMovementAfterSpot = "Congrats! Object has been passed!";
         }
         return robotsMovementAfterSpot;
+    }
+
+    public static void comunicationToOwner() {
+
+        System.out.println("The Robot will speak with it's owner");
+
+        for (int robotisCoutning = 10; robotisCoutning >= 1; robotisCoutning--) {
+            if (robotisCoutning % 2 == 0) {
+                System.out.printf("I am Robot Mouse Killer %s\n", robotisCoutning);
+            }
+        }
     }
 }
